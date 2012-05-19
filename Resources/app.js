@@ -13,16 +13,47 @@ var win1 = Titanium.UI.createWindow({
     backgroundColor:'#fff'
 });
 
-var label1 = Titanium.UI.createLabel({
-	color:'#999',
-	text:'I am Window 1',
-	font:{fontSize:20,fontFamily:'Helvetica Neue'},
-	textAlign:'center',
-	width:'auto'
+// var label1 = Titanium.UI.createLabel({
+	// color:'#999',
+	// text:'I am Window 1',
+	// font:{fontSize:20,fontFamily:'Helvetica Neue'},
+	// textAlign:'center',
+	// width:'auto'
+// });
+// 
+// win1.add(label1);
+
+var imageslider = Titanium.UI.createScrollView({
+    contentWidth:'auto',
+    contentHeight:'auto',
+    top:0,
+    showVerticalScrollIndicator:true,
+    showHorizontalScrollIndicator:true,
+    backgroundImage:('img/bgimg.png'),
+    width: '100%',
+    height:300
 });
 
-win1.add(label1);
+function createImgForScroll(img){
+	var myimage = Titanium.UI.createImageView({
+	                image: img,
+	                left: 20,
+	                top: 3,
+	                width:200,
+	                height:150,
+	                borderColor:'#ebebee',
+	                borderWidth:5,
+	            });		
+	return myimage;
+}
 
+imageslider.add(createImgForScroll('img/scrollTest/blueMonster.jpeg') );
+imageslider.add(createImgForScroll('img/scrollTest/download.jpeg') );
+imageslider.add(createImgForScroll('img/scrollTest/ears.jpeg') );
+imageslider.add(createImgForScroll('img/scrollTest/mermaid.jpeg') );
+imageslider.add(createImgForScroll('img/scrollTest/plouto.jpeg') );
+
+win1.add(imageslider);
 
 var tab1 = Titanium.UI.createTab({  
     icon:'KS_nav_views.png',
