@@ -20,6 +20,9 @@ var win1 = Titanium.UI.createWindow({
 	       left: 0,
 	       top: 10
 		});
+		vwUserChannels.addEventListener('click', function(e){
+			Ti.API.info('extra view');
+		})
 
 		var btnAddChannel = Ti.UI.createButton({
 			right: 10,
@@ -36,16 +39,7 @@ var win1 = Titanium.UI.createWindow({
 		vwUserChannels.add(btnAddChannel); //doesnt work?
 		//win1.add(btnAddChannel); //works
 		
-		var lblChannelTitle = Ti.UI.createLabel({
-			color: '#FFFFFF',
-			font: { fontSize:22 },
-			text: 'Your channels',
-			textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-			height: 50,
-			width: 170,
-			left: 50		
-		});
-		vwUserChannels.add(lblChannelTitle);	
+
 
 win1.add(vwUserChannels);
 
