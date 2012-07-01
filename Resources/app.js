@@ -7,10 +7,10 @@ var tabGroup = Titanium.UI.createTabGroup();
 
 //
 // create base UI tab and root window
-//
+//  
 var win1 = Titanium.UI.createWindow({  
     title:'Tab 1',
-    backgroundColor:'#fff'
+    backgroundColor:'#C7C7C7'
 });
 
 // var label1 = Titanium.UI.createLabel({
@@ -25,33 +25,50 @@ var win1 = Titanium.UI.createWindow({
 
 var imageslider = Titanium.UI.createScrollView({
     contentWidth:'auto',
-    contentHeight:'auto',
-    top:0,
-    showVerticalScrollIndicator:true,
+    contentHeight:80,
+    top: 5,
+    left: 5,
+    showVerticalScrollIndicator:false,
     showHorizontalScrollIndicator:true,
-    backgroundImage:('img/bgimg.png'),
+    // backgroundImage:('img/bgimg.png'),
+    backgroundColor: '#C7C7C7',
     width: '100%',
-    height:300
+    height:80
 });
 
-function createImgForScroll(img){
-	var myimage = Titanium.UI.createImageView({
-	                image: img,
-	                left: 20,
-	                top: 3,
-	                width:200,
-	                height:150,
-	                borderColor:'#ebebee',
-	                borderWidth:5,
-	            });		
-	return myimage;
+var scrollView = {
+	self : this,
+	postitionOffset : 10,
+	imgWidth : 100,
+	
+	count: -1,
+
+	createImgForScroll: function (imgForView) {
+		var self = this;
+		self.count = self.count + 1;
+		self.postitionOffset = self.count * self.imgWidth;
+		var myimage = Titanium.UI.createView({
+		                backgroundImage: imgForView,
+		                width:self.width,
+		                height:80,
+		                borderRadius:2,
+		                left: self.postitionOffset,
+		                alertText: imgForView
+		            });	
+        myimage.addEventListener('click',function(e){
+        	Ti.API.info(e);	
+        });	
+		return myimage;
+	}	 
 }
 
-imageslider.add(createImgForScroll('img/scrollTest/blueMonster.jpeg') );
-imageslider.add(createImgForScroll('img/scrollTest/download.jpeg') );
-imageslider.add(createImgForScroll('img/scrollTest/ears.jpeg') );
-imageslider.add(createImgForScroll('img/scrollTest/mermaid.jpeg') );
-imageslider.add(createImgForScroll('img/scrollTest/plouto.jpeg') );
+
+
+imageslider.add(scrollView.createImgForScroll('img/sidescrollTest/blueMonster.jpeg') );
+imageslider.add(scrollView.createImgForScroll('img/sidescrollTest/download.jpeg') );
+imageslider.add(scrollView.createImgForScroll('img/sidescrollTest/ears.jpeg') );
+imageslider.add(scrollView.createImgForScroll('img/sidescrollTest/mermaid.jpeg') );
+imageslider.add(scrollView.createImgForScroll('img/sidescrollTest/plouto.jpeg') );
 
 win1.add(imageslider);
 
