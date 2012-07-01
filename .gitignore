@@ -10,3 +10,4 @@ tmp
 .svn
 _svn
 svn-commit*.tmp
+/build
