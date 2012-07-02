@@ -13,33 +13,31 @@ var win1 = Titanium.UI.createWindow({
     backgroundColor:'#C7C7C7'
 });
 
-		var vwUserChannels = Ti.UI.createView({
-	       backgroundColor: '#000',
-	       height: 60,
-	       width: 480,
-	       left: 0,
-	       top: 10
-		});
-		vwUserChannels.addEventListener('click', function(e){
-			Ti.API.info('extra view');
-		})
+var vwUserChannels = Ti.UI.createView({
+   backgroundColor: '#000',
+   height: 60,
+   width: 480,
+   left: 0,
+   top: 10
+});
+vwUserChannels.addEventListener('click', function(e){
+	Ti.API.info('extra view');
+})
 
-		var btnAddChannel = Ti.UI.createButton({
-			right: 10,
-			width: 30,
-			height: 30,
-			backgroundColor: '#66CD00',
-			top: 10,
-			zIndex: 10,
-			title: 'fsdfsdfsd'
-		});	
-		btnAddChannel.addEventListener('click',function (e){
-			alert('here');
-		});
-		vwUserChannels.add(btnAddChannel); //doesnt work?
-		//win1.add(btnAddChannel); //works
-		
-
+var btnAddChannel = Ti.UI.createButton({
+	right: 10,
+	width: 30,
+	height: 30,
+	backgroundColor: '#66CD00',
+	top: 10,
+	zIndex: 10,
+	title: 'fsdfsdfsd'
+});	
+btnAddChannel.addEventListener('click',function (e){
+	alert('here');
+});
+vwUserChannels.add(btnAddChannel); //doesnt work?
+//win1.add(btnAddChannel); //works
 
 win1.add(vwUserChannels);
 
