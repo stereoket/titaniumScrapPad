@@ -16,10 +16,11 @@ var win1 = Titanium.UI.createWindow({
 var vwUserChannels = Ti.UI.createView({
    backgroundColor: '#000',
    height: 60,
-   width: 480,
+//   width: 480, // OR Replace width with a right property value (this is a bug, yet works if you use left & right properties, width kills it whatever property value is set.)
    left: 0,
    top: 10
 });
+
 vwUserChannels.addEventListener('click', function(e){
 	Ti.API.info('extra view');
 })
